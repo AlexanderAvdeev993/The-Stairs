@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSceneEntryPoint : MonoBehaviour
@@ -27,8 +28,12 @@ public class GameSceneEntryPoint : MonoBehaviour
         {
             GoToMenuSceneRequested?.Invoke();
         };
-
-
         Debug.Log("GameSceneEntryPoint");
+    }
+
+    private List<QuestAnswer> QuestAnswers()
+    {
+        var questAnswers = Resources.Load<QuestSO>("QuestSO").GetQuestAnswer();
+        return questAnswers;
     }
 }

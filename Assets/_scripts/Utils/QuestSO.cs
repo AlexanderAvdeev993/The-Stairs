@@ -6,4 +6,5 @@ public class QuestSO : ScriptableObject
 {  
     //[SerializeField] private List<QuestBase>  _questsList;
     [SerializeField] private List<QuestAnswer> _answer;
+    public List<QuestAnswer> GetQuestAnswer() => _answer;
 }

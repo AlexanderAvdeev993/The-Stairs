@@ -38,7 +38,7 @@ public class ChunkManager : MonoBehaviour
         {
             var newChunk = Instantiate(_chunkPrefab, new Vector3(0, _chunkHeight * i, 0), Quaternion.identity);    
             newChunk.transform.parent = transform;
-            newChunk.GetComponent<Chunk>().InitQuest(_questManager.GetQuest(_ñhunkIndex));          // íîâûé êâåñò
+            //newChunk.GetComponent<Chunk>().InitQuest(_questManager.GetQuest(_ñhunkIndex));          // íîâûé êâåñò
             _chunks.Add(newChunk.transform); 
             _ñhunkIndex = i;
         }

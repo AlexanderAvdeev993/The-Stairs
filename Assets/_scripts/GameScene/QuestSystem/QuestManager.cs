@@ -1,17 +1,28 @@
 using System.Collections.Generic;
+using UnityEngine;
 
-public class QuestManager
+public class QuestManager : MonoBehaviour
 {
-    private List<QuestBase> _quests;
+    [SerializeField] private ButtonQuest _buttonQuest;
+    private List<QuestAnswer> _quests;
 
-
-    public void Init(List<QuestBase> quests)
+    private void Start()
     {
-        _quests = quests;
+        _quests = QuestAnswers();
+        _buttonQuest.Init(_quests[0].ButtonQuestAnswer);
     }
 
-    public QuestBase GetQuest(int id)
+
+
+
+    /*public QuestAnswer GetQuest(int id)
     {
         return _quests[id];
+    }*/
+
+    private List<QuestAnswer> QuestAnswers()
+    {
+        var questAnswers = Resources.Load<QuestSO>("QuestSO").GetQuestAnswer();
+        return questAnswers;
     }
 }
