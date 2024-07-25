@@ -467,6 +467,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chunk
       objectReference: {fileID: 0}
+    - target: {fileID: 7465226241617021693, guid: a1d559a2399fb7a4598805f7613940a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8762782657919120659, guid: a1d559a2399fb7a4598805f7613940a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

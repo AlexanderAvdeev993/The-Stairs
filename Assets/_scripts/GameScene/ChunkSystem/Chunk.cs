@@ -10,21 +10,26 @@ public class Chunk : MonoBehaviour
 
     public void InitQuest(QuestBase quest)
     {
-        UnsubscribeToCompleteQuest();
         _quest = quest;
+        UnsubscribeToCompleteQuest();
+        
         SubscribeToCompleteQuest();
     }
-    private void Start()
+
+    private void Awake()
     {
         _doorController = GetComponentInChildren<DoorController>();
     }
+
     private void SubscribeToCompleteQuest()
     {
         _quest.OnEventCompleted += _doorController.OpenDoor;
     }
     private void UnsubscribeToCompleteQuest()
-    {
+    {   
+        
         _quest.OnEventCompleted -= _doorController.OpenDoor;
+        
     }
     public void TriggerOff()
     {

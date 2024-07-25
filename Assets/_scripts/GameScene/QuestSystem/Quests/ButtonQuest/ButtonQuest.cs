@@ -4,13 +4,13 @@ using UnityEngine;
 public class ButtonQuest : QuestBase
 {
     [SerializeField] private List<UIButton> _buttons;
-    [SerializeField] private bool[] _requiredButtons =
+    [SerializeField] private bool[] _requiredButtons = new bool[16]; /*=
     {
         true,false,false,true,
         false,false,false,false,
         false,false,false,false,
         true,false,false,true
-    };
+    };*/
 
     public void Init(bool[] requiredButtons)
     {

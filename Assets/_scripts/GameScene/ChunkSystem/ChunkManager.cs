@@ -7,8 +7,8 @@ public class ChunkManager : MonoBehaviour
     [SerializeField] private GameObject _chunkPrefab;
     [SerializeField] private float _chunkHeight = 12f;
     [SerializeField] private int _totalChunks = 3;
-    private List<Transform> _chunks = new List<Transform>();
-    private int _ÒhunkIndex;
+    private List<Chunk> _chunks = new List<Chunk>();
+    private int _ÒhunkIndex = 0;
     private AIController _aiController;
     private QuestManager _questManager;
     
@@ -38,12 +38,17 @@ public class ChunkManager : MonoBehaviour
         {
             var newChunk = Instantiate(_chunkPrefab, new Vector3(0, _chunkHeight * i, 0), Quaternion.identity);    
             newChunk.transform.parent = transform;
-            //newChunk.GetComponent<Chunk>().InitQuest(_questManager.GetQuest(_ÒhunkIndex));          // ÌÓ‚˚È Í‚ÂÒÚ
-            _chunks.Add(newChunk.transform); 
+            
+            _chunks.Add(newChunk.GetComponent<Chunk>()); 
             _ÒhunkIndex = i;
         }
-        _chunks[0].GetComponentInChildren<Chunk>().TriggerOff();
-        _chunks[1].GetComponentInChildren<Chunk>().TriggerOff();
+
+
+        _questManager.LoadQuest(0, _chunks[0]);
+       
+
+        _chunks[0].TriggerOff();
+        _chunks[1].TriggerOff();
         _ÒhunkIndex = _totalChunks;
        
         _aiController.UpdateNavMesh();
@@ -51,15 +56,16 @@ public class ChunkManager : MonoBehaviour
 
     private void MoveChunk()
     {
-        Transform chunkToMove = _chunks[0];
+        Transform chunkToMove = _chunks[0].transform;
         _chunks.RemoveAt(0);
         chunkToMove.position = new Vector3(0, _chunkHeight * _ÒhunkIndex, 0);
         Chunk chunk = chunkToMove.GetComponent<Chunk>();
         chunk.TriggerOn();
-        // chunk.Init();          // ÌÓ‚˚È Í‚ÂÒÚ
+
+        
 
 
-        _chunks.Add(chunkToMove);
+        _chunks.Add(chunkToMove.GetComponent<Chunk>());
         _ÒhunkIndex++;
 
         _aiController.UpdateNavMesh();
