@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class QuestBase : MonoBehaviour
 {
-    public event Action OnEventCompleted;
+    public event Action OnQuestCompleted;
+    public static event Action OnStaticQuestComplete;
+
     protected void QuestCompleted()
     {
         Debug.Log("Quest completed");
-        OnEventCompleted?.Invoke();
+        OnQuestCompleted?.Invoke();
+        OnStaticQuestComplete?.Invoke();
     }
 }

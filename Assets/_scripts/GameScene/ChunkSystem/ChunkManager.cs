@@ -42,15 +42,14 @@ public class ChunkManager : MonoBehaviour
             _chunks.Add(newChunk.GetComponent<Chunk>()); 
             _ñhunkIndex = i;
         }
-
-
-        _questManager.LoadQuest(0, _chunks[0]);
-       
+        _questManager.LoadQuest(0, _chunks[2]);  
 
         _chunks[0].TriggerOff();
+        _chunks[0].OpenDoor();
         _chunks[1].TriggerOff();
-        _ñhunkIndex = _totalChunks;
-       
+        _chunks[1].OpenDoor();
+
+        _ñhunkIndex = _totalChunks;       
         _aiController.UpdateNavMesh();
     }
 
@@ -61,12 +60,12 @@ public class ChunkManager : MonoBehaviour
         chunkToMove.position = new Vector3(0, _chunkHeight * _ñhunkIndex, 0);
         Chunk chunk = chunkToMove.GetComponent<Chunk>();
         chunk.TriggerOn();
-
+        chunk.CloseDoor();
         
-
-
         _chunks.Add(chunkToMove.GetComponent<Chunk>());
         _ñhunkIndex++;
+
+        _questManager.LoadQuest(_ñhunkIndex -3,_chunks[2]);
 
         _aiController.UpdateNavMesh();
     }

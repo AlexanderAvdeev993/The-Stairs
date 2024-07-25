@@ -6,13 +6,12 @@ public class Chunk : MonoBehaviour
     private DoorController _doorController;
     private QuestBase _quest;
 
-    public GameObject getChunkTrigger() => _chunkTrigger;
+    public GameObject GetChunkTrigger() => _chunkTrigger;
 
-    public void InitQuest(QuestBase quest)
+    public void InitQuest(QuestBase newQuest)
     {
-        _quest = quest;
         UnsubscribeToCompleteQuest();
-        
+        _quest = newQuest;
         SubscribeToCompleteQuest();
     }
 
@@ -23,20 +22,32 @@ public class Chunk : MonoBehaviour
 
     private void SubscribeToCompleteQuest()
     {
-        _quest.OnEventCompleted += _doorController.OpenDoor;
+        _quest.OnQuestCompleted += _doorController.OpenDoor;
     }
+
     private void UnsubscribeToCompleteQuest()
-    {   
-        
-        _quest.OnEventCompleted -= _doorController.OpenDoor;
-        
+    {
+        if (_quest != null)
+        {
+            _quest.OnQuestCompleted -= _doorController.OpenDoor;
+        }
     }
+
     public void TriggerOff()
     {
         _chunkTrigger.SetActive(false);
     }
+
     public void TriggerOn()
     {
         _chunkTrigger.SetActive(true);
+    }
+    public void OpenDoor()
+    {
+        _doorController.OpenDoor(); 
+    }
+    public void CloseDoor()
+    {
+        _doorController.CloseDoor();
     }
 }

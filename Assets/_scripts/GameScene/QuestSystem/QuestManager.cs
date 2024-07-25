@@ -9,8 +9,7 @@ public class QuestManager : MonoBehaviour
 
     private void Start()
     {
-        _quests = QuestAnswers();
-        //_buttonQuest.Init(_quests[0].ButtonQuestAnswer);
+        _quests = QuestAnswers();     
     }
 
     public void LoadQuest(int levelIndex, Chunk currentChunk)
@@ -26,13 +25,6 @@ public class QuestManager : MonoBehaviour
                 break;                 
         }                           
     }
-
-
-   public QuestBase GetQuest(int id)
-   {
-       return _buttonQuest;
-   }
-
 
     private List<QuestAnswer> QuestAnswers()
     {
