@@ -10,7 +10,6 @@ public class GameSceneEntryPoint : MonoBehaviour
     [SerializeField] private ChunkManager _chunkManager;
     [SerializeField] private PlayerController _playerPrefab;
     [SerializeField] private MonsterMovement _monsterPrefab;
-    //[SerializeField] private QuestManager _questManager;
     [SerializeField] private Transform _monsterSpawnPoint;
 
     public void Run(UIRootView uIRootView)
@@ -19,7 +18,7 @@ public class GameSceneEntryPoint : MonoBehaviour
         uIRootView.AttachSceneUI(uiScene.gameObject);
 
         ChunkManager chunkManager = Instantiate(_chunkManager);
-        var questManager = uiScene.GetComponentInChildren<QuestManager>();  
+        QuestManager questManager = uiScene.GetComponentInChildren<QuestManager>();  
         chunkManager.Init(questManager);
 
         PlayerController playerInstance = Instantiate(_playerPrefab);

@@ -65,7 +65,7 @@ public class ChunkManager : MonoBehaviour
         _chunks.Add(chunkToMove.GetComponent<Chunk>());
         _ñhunkIndex++;
 
-        _questManager.LoadQuest(_ñhunkIndex -3,_chunks[2]);
+        _questManager.LoadQuest(_ñhunkIndex - _chunks.Count,_chunks[2]);
 
         _aiController.UpdateNavMesh();
     }
