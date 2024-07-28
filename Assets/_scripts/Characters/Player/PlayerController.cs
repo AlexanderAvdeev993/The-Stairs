@@ -3,22 +3,24 @@ using UnityEngine;
 [RequireComponent (typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float walkSpeed = 5f;
-    [SerializeField] private float runSpeed = 10f;
-    [SerializeField] private float mouseSensitivity = 100f;
-    [SerializeField] private float verticalRotationLimit = 80f;
+    [SerializeField] private float _walkSpeed = 5f;
+    [SerializeField] private float _runSpeed = 10f;
+    [SerializeField] private float _mouseSensitivity = 100f;
+    [SerializeField] private float _verticalRotationLimit = 80f;
 
-    private CharacterController characterController;
-    private Transform cameraTransform;
-    private float verticalSpeed = 0f;
-    private const float gravity = -9.81f;
-    private float verticalRotation = 0f;
-    private bool IsQuestMode;
+    private CharacterController _characterController;
+    private PlayerInteraction _playerInteraction;
+    private Transform _cameraTransform;
+    private float _verticalSpeed = 0f;
+    private const float _gravity = -9.81f;
+    private float _verticalRotation = 0f;
+    private bool IsQuestMode = false;
 
     private void Start()
     {
-        characterController = GetComponent<CharacterController>();
-        cameraTransform = Camera.main.transform;
+        _characterController = GetComponent<CharacterController>();
+        _cameraTransform = Camera.main.transform;
+        _playerInteraction = GetComponent<PlayerInteraction>();
     }
 
     private void Update()
@@ -28,38 +30,55 @@ public class PlayerController : MonoBehaviour
             MovePlayer();
             RotatePlayer();
         }
-        if(Input.GetKeyDown(KeyCode.E))
+        else
         {
-            Debug.Log("1");
+            ApplyGravity();
         }
+    }
+
+    public void SwitchQuestMode()
+    {
+        IsQuestMode = !IsQuestMode;         
+    }
+    public void OffQuestMode()
+    {
+        IsQuestMode = false;
     }
 
     private void MovePlayer()
     {
-        float speed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
+        float speed = Input.GetKey(KeyCode.LeftShift) ? _runSpeed : _walkSpeed;
 
         float moveDirectionX = Input.GetAxis("Horizontal") * speed;
         float moveDirectionZ = Input.GetAxis("Vertical") * speed;
-     
-        if (characterController.isGrounded)    
-            verticalSpeed = 0f;       
-        else        
-            verticalSpeed += gravity * Time.deltaTime; 
-       
-        Vector3 move = transform.right * moveDirectionX + transform.forward * moveDirectionZ;
-        move.y = verticalSpeed;
 
-        characterController.Move(move * Time.deltaTime);     
+        ApplyGravity();
+
+        Vector3 move = transform.right * moveDirectionX + transform.forward * moveDirectionZ;
+        move.y = _verticalSpeed;
+
+        _characterController.Move(move * Time.deltaTime);
     }
+
+    private void ApplyGravity()
+    {
+        if (_characterController.isGrounded)
+            _verticalSpeed = 0f;
+        else
+            _verticalSpeed += _gravity * Time.deltaTime;
+
+        _characterController.Move(new Vector3(0, _verticalSpeed, 0) * Time.deltaTime);
+    }
+
     private void RotatePlayer()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * Time.deltaTime;
 
-        verticalRotation -= mouseY;
-        verticalRotation = Mathf.Clamp(verticalRotation, -verticalRotationLimit, verticalRotationLimit);
+        _verticalRotation -= mouseY;
+        _verticalRotation = Mathf.Clamp(_verticalRotation, -_verticalRotationLimit, _verticalRotationLimit);
 
-        cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
+        _cameraTransform.localRotation = Quaternion.Euler(_verticalRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
     }
 }

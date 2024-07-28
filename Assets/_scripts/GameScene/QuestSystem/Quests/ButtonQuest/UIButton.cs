@@ -33,4 +33,12 @@ public class UIButton : MonoBehaviour
         }
         OnButtonClick?.Invoke();
     }
+    public void SwitchButtonActive()
+    {
+        IsActive = !IsActive;
+        if (_image != null)
+        {
+            _image.color = IsActive ? activeColor : _originalColor;
+        }
+    }
 }

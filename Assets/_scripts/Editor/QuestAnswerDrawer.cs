@@ -31,8 +31,7 @@ public class QuestAnswerDrawer : PropertyDrawer
         var questTypeProperty = property.FindPropertyRelative("QuestType");
         var buttonQuestProperty = property.FindPropertyRelative("ButtonQuestAnswer");
         var intQuestProperty = property.FindPropertyRelative("IntQuest");
-
-        Debug.Log(buttonQuestProperty.arraySize);
+       
 
         EditorGUI.PropertyField(
             new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight),
@@ -59,15 +58,12 @@ public class QuestAnswerDrawer : PropertyDrawer
     }
 
     private void DrawButtonQuestGrid(Rect position, SerializedProperty buttonQuestProperty)
-    {
-        //var buttonQuestProperty = SbuttonQuestProperty.FindPropertyRelative("ButtonQuestAnswer");
+    {      
 
         float startX = position.x;
         float startY = position.y + EditorGUIUtility.singleLineHeight;
         float width = position.width / GridSize;
         float height = EditorGUIUtility.singleLineHeight;
-
-        Debug.Log(buttonQuestProperty.arraySize);
 
         for (int i = 0; i < buttonQuestProperty.arraySize; i++)
         {  
