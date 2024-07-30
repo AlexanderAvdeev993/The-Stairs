@@ -15,31 +15,41 @@ MonoBehaviour:
   _answer:
   - QuestType: 0
     ButtonQuestAnswer: 01000000000000000000000000000000
+    SpriteHint: {fileID: 21300000, guid: 804c5779f307b8945a612e2ec00e441a, type: 3}
     IntQuest: 0
   - QuestType: 0
     ButtonQuestAnswer: 00010000000000000000000000000000
+    SpriteHint: {fileID: 21300000, guid: 5f3643c6aaece6546b1bad2a12ca5e68, type: 3}
     IntQuest: 0
   - QuestType: 0
     ButtonQuestAnswer: 00000100000000000000000000000000
+    SpriteHint: {fileID: 21300000, guid: 5ca8cdbac927185468bd7611f489d32a, type: 3}
     IntQuest: 0
   - QuestType: 0
     ButtonQuestAnswer: 00000001000000000000000000000000
+    SpriteHint: {fileID: 21300000, guid: 03f873df94af8fd48826bb1ccfd82e21, type: 3}
     IntQuest: 0
   - QuestType: 0
     ButtonQuestAnswer: 00000000010000000000000000000000
+    SpriteHint: {fileID: 21300000, guid: 3aff20f10b9f3f4478e97dd1b62d3f91, type: 3}
     IntQuest: 0
   - QuestType: 0
     ButtonQuestAnswer: 00000000000100000000000000000000
+    SpriteHint: {fileID: 21300000, guid: 2f5714285e1a6c64abf108ef5a58c2c8, type: 3}
     IntQuest: 0
   - QuestType: 0
     ButtonQuestAnswer: 00000000000001000000000000000000
+    SpriteHint: {fileID: 21300000, guid: 8672b4cd5727e7045beb445fe2e6beed, type: 3}
     IntQuest: 0
   - QuestType: 0
     ButtonQuestAnswer: 00000000000000010000000000000000
+    SpriteHint: {fileID: 21300000, guid: 02eaa23f9678b644787425ea665921ac, type: 3}
     IntQuest: 0
   - QuestType: 0
     ButtonQuestAnswer: 00000000000000000100000000000000
+    SpriteHint: {fileID: 21300000, guid: 8bd6529517cb4114d9f4dd44b852607f, type: 3}
     IntQuest: 0
   - QuestType: 0
     ButtonQuestAnswer: 00000000000000000001000000000000
+    SpriteHint: {fileID: 21300000, guid: 4353aa5c42d2acd41a4bc23e9d2fc4c1, type: 3}
     IntQuest: 0

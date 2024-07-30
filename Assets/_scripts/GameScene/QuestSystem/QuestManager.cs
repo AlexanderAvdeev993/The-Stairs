@@ -7,6 +7,7 @@ public class QuestManager : MonoBehaviour
     
     private List<QuestAnswer> _quests;
     private QuestBase _currentQuest;
+    
 
     private void Start()
     {         
@@ -35,25 +36,22 @@ public class QuestManager : MonoBehaviour
         {
             _currentQuest.OffUI();
         }
-        
-        
-       // _currentQuest.IsActive = true;
     }
     private void OffQuestUI()
-    {
-        Debug.Log("UI off");
-        //_currentQuest.IsActive = false;
+    {               
          _currentQuest.OffUI();
     }
 
-    public void LoadQuest(int levelIndex, Chunk currentChunk)
+    public void LoadQuest(int levelIndex, Chunk currentChunk, Chunk previousChunk)
     {       
         switch (_quests[levelIndex].QuestType)
         {
-            case QuestType.ButtonQuest:
-                //_buttonQuest.gameObject.SetActive(true);
+            case QuestType.ButtonQuest:             
                 _buttonQuest.Init(_quests[levelIndex].ButtonQuestAnswer);
                 _currentQuest = _buttonQuest;
+
+                var chunkSpriteHintPoint = previousChunk.GetSpriteHintPoint();
+                chunkSpriteHintPoint.sprite = _quests[levelIndex].SpriteHint;
 
                 currentChunk.InitQuest(_currentQuest);
                 break;                 

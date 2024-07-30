@@ -42,7 +42,7 @@ public class ChunkManager : MonoBehaviour
             _chunks.Add(newChunk.GetComponent<Chunk>()); 
             _ñhunkIndex = i;
         }
-        _questManager.LoadQuest(0, _chunks[2]);  
+        _questManager.LoadQuest(0, _chunks[2], _chunks[1]);  
 
         _chunks[0].TriggerOff();
         _chunks[0].OpenDoor();
@@ -65,7 +65,7 @@ public class ChunkManager : MonoBehaviour
         _chunks.Add(chunkToMove.GetComponent<Chunk>());
         _ñhunkIndex++;
 
-        _questManager.LoadQuest(_ñhunkIndex - _chunks.Count,_chunks[2]);
+        _questManager.LoadQuest(_ñhunkIndex - _chunks.Count,_chunks[2], _chunks[1]);
 
         _aiController.UpdateNavMesh();
     }
