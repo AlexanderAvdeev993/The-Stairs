@@ -9,7 +9,7 @@ public class QuestBase : MonoBehaviour
 
     protected void QuestCompleted()
     {
-        Debug.Log("Quest completed");
+        //Debug.Log("Quest completed");
         OnQuestCompleted?.Invoke();
         OnStaticQuestComplete?.Invoke();
     }

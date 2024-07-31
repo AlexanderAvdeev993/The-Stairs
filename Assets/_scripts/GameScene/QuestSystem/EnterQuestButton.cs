@@ -19,7 +19,7 @@ public class EnterQuestButton : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Debug.Log("interact");
+        //Debug.Log("interact");
     }
     public void QuestButtonON()
     {

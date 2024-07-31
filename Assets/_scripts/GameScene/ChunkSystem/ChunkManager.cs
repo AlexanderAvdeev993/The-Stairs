@@ -6,7 +6,7 @@ public class ChunkManager : MonoBehaviour
 {
     [SerializeField] private GameObject _chunkPrefab;
     [SerializeField] private float _chunkHeight = 12f;
-    [SerializeField] private int _totalChunks = 3;
+    [SerializeField] private int _totalChunks = 4;
     private List<Chunk> _chunks = new List<Chunk>();
     private int _ñhunkIndex = 0;
     private AIController _aiController;
@@ -33,14 +33,19 @@ public class ChunkManager : MonoBehaviour
     }
 
     private void InitializeChunks()
-    {
+    {   
+        var chunkID = 0;  // test
+
         for (int i = 0; i < _totalChunks; i++)
         {
             var newChunk = Instantiate(_chunkPrefab, new Vector3(0, _chunkHeight * i, 0), Quaternion.identity);    
             newChunk.transform.parent = transform;
-            
+        
             _chunks.Add(newChunk.GetComponent<Chunk>()); 
             _ñhunkIndex = i;
+
+            _chunks[i]._chunkID = chunkID;
+            chunkID++;
         }
         _questManager.LoadQuest(0, _chunks[2], _chunks[1]);  
 

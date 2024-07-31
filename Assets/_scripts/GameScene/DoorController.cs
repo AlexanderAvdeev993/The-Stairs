@@ -11,12 +11,12 @@ public class DoorController : MonoBehaviour
 
     public void CloseDoor()
     {
-        Debug.Log("CLoseDoor");
+        //Debug.Log("CLoseDoor");
         StartCoroutine(MoveDoorCoroutine(DoorMovedState.Closing));
     }
     public void OpenDoor()
     {
-        Debug.Log("OpenDoor");       
+        //Debug.Log("OpenDoor");       
         StartCoroutine(MoveDoorCoroutine(DoorMovedState.Opening));
     }
    

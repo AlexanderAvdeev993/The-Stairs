@@ -8,6 +8,8 @@ public class Chunk : MonoBehaviour
     private Hints _hints;
     private EnterQuestButton _enterQuestButton;
 
+    public int _chunkID;   // test
+
     public GameObject GetChunkTrigger() => _chunkTrigger;
 
     public void InitQuest(QuestBase newQuest)
@@ -30,14 +32,14 @@ public class Chunk : MonoBehaviour
 
     private void SubscribeToCompleteQuest()
     {
-        _quest.OnQuestCompleted += OpenDoor;
+        _quest.OnQuestCompleted += OpenDoor;      
     }
 
     private void UnsubscribeToCompleteQuest()
     {
         if (_quest != null)
         {
-            _quest.OnQuestCompleted -= OpenDoor;
+            _quest.OnQuestCompleted -= OpenDoor;           
         }
     }
 
@@ -54,6 +56,10 @@ public class Chunk : MonoBehaviour
     {
         _doorController.OpenDoor(); 
         _enterQuestButton.QuestButtonON();
+        if (_quest != null)
+        {
+            _quest.OnQuestCompleted -= OpenDoor;        
+        }
     }
     public void CloseDoor()
     {

@@ -27,7 +27,7 @@ public class QuestManager : MonoBehaviour
 
     private void OnQuestUI()
     {
-        Debug.Log("UI on");       
+        //Debug.Log("UI on");       
         if (_currentQuest.IsActive == false)
         {
             _currentQuest.OnUI();

@@ -47,6 +47,7 @@ public class PlayerInteraction : MonoBehaviour
     private void OffQuestMode()
     {
         _playerController.OffQuestMode();
+        _mActive = false;
     }
 
     private void Update()

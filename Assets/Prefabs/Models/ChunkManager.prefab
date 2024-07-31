@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chunkPrefab: {fileID: 7465226241617021693, guid: a1d559a2399fb7a4598805f7613940a6, type: 3}
   _chunkHeight: 12
-  _totalChunks: 3
+  _totalChunks: 4
 --- !u!114 &7089892530965242565
 MonoBehaviour:
   m_ObjectHideFlags: 0
