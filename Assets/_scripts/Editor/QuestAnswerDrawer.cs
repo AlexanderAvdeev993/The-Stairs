@@ -20,7 +20,7 @@ public class QuestAnswerDrawer : PropertyDrawer
                 additionalHeight = EditorGUIUtility.singleLineHeight * GridSize + EditorGUIUtility.singleLineHeight + Spacing; // 4 rows * single line height + SpriteHint field
                 break;
             case QuestType.MathQuest:
-                additionalHeight = EditorGUIUtility.singleLineHeight;
+                additionalHeight = EditorGUIUtility.singleLineHeight + Spacing;
                 break;
         }
 
@@ -32,7 +32,7 @@ public class QuestAnswerDrawer : PropertyDrawer
     {
         var questTypeProperty = property.FindPropertyRelative("QuestType");
         var buttonQuestProperty = property.FindPropertyRelative("ButtonQuestAnswer");
-        var intQuestProperty = property.FindPropertyRelative("IntQuest");
+        var intQuestProperty = property.FindPropertyRelative("MathQuestAnswer");
         var spriteHintProperty = property.FindPropertyRelative("SpriteHint");
 
         // Get the index of the current property
@@ -68,6 +68,10 @@ public class QuestAnswerDrawer : PropertyDrawer
                 EditorGUI.PropertyField(
                     new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight, position.width, EditorGUIUtility.singleLineHeight),
                     intQuestProperty);
+                EditorGUI.PropertyField(
+                    new Rect(position.x, position.y + 40, position.width, EditorGUIUtility.singleLineHeight),
+                    spriteHintProperty);
+                position.y += EditorGUIUtility.singleLineHeight;
                 break;
         }
 

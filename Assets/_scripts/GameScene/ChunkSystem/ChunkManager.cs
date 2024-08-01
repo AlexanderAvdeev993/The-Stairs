@@ -74,6 +74,4 @@ public class ChunkManager : MonoBehaviour
 
         _aiController.UpdateNavMesh();
     }
-
- 
 }

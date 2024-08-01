@@ -7,5 +7,5 @@ public class QuestAnswer
     public QuestType QuestType;
     public bool[] ButtonQuestAnswer = new bool[16];
     public Sprite SpriteHint;
-    public int IntQuest;   
+    public int MathQuestAnswer;   
 }

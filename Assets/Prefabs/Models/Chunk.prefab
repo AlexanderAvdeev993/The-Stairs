@@ -522,7 +522,7 @@ Transform:
   m_GameObject: {fileID: 5521608611073032584}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.8, y: 7.8, z: -3.8}
+  m_LocalPosition: {x: -3.746, y: 4.649, z: -3.453}
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -624,7 +624,7 @@ NavMeshObstacle:
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
   m_MoveThreshold: 0.1
   m_Carve: 1
-  m_CarveOnlyStationary: 0
+  m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
 --- !u!1 &5952633212652568120
@@ -1233,6 +1233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chunkTrigger: {fileID: 5521608611073032584}
+  _chunkID: 0
 --- !u!1 &7831161288387142373
 GameObject:
   m_ObjectHideFlags: 0
