@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSceneEntryPoint : MonoBehaviour
@@ -23,8 +22,8 @@ public class GameSceneEntryPoint : MonoBehaviour
 
         PlayerController playerInstance = Instantiate(_playerPrefab);
        
-        //MonsterMovement monsterInstance = Instantiate(_monsterPrefab, _monsterSpawnPoint);
-        //monsterInstance.Init(playerInstance.transform);
+        MonsterMovement monsterInstance = Instantiate(_monsterPrefab, _monsterSpawnPoint);
+        monsterInstance.Init(playerInstance.transform);
 
         uiScene.GoToMenuSceneButtonClicked += () =>
         {

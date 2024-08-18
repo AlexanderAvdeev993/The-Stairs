@@ -4,10 +4,10 @@ using UnityEngine;
 public class MathQuest : QuestBase
 {
     [SerializeField] private TextMeshProUGUI _UIText;
-    [SerializeField] private int _maxCountValue;
-    [SerializeField] private string _currentValue;
+    [SerializeField] private int _maxCountValue;   
     [SerializeField] private int _answer;
     [SerializeField] private GameObject _UIItems;
+    private string _currentValue;
 
     public void Init(int answer)
     {
@@ -35,12 +35,21 @@ public class MathQuest : QuestBase
             UpdateUI();
         }
     }
+    private void ClearCurrentValue()
+    {
+        _currentValue = string.Empty;
+        UpdateUI();
+    }
     public void CheckComplete()
     {
-        if (_answer == int.Parse(_currentValue))
+        int parsValue;
+        bool IsParseValue = int.TryParse(_currentValue, out parsValue);
+
+        if(!string.IsNullOrEmpty(_currentValue))
         {
-            QuestCompleted();
-        }
+            if(IsParseValue && _answer == parsValue)          
+                QuestCompleted();            
+        }    
     }
     private void UpdateUI()
     {
@@ -50,7 +59,8 @@ public class MathQuest : QuestBase
     public override void OffUI()
     {
         base.OffUI();
-        _UIItems.SetActive(false);
+        ClearCurrentValue();
+        _UIItems.SetActive(false);       
     }
     public override void OnUI()
     {

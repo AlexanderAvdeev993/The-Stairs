@@ -1,12 +1,16 @@
 using UnityEngine;
 
-[RequireComponent (typeof(CharacterController))]
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _walkSpeed = 5f;
     [SerializeField] private float _runSpeed = 10f;
     [SerializeField] private float _mouseSensitivity = 100f;
     [SerializeField] private float _verticalRotationLimit = 80f;
+
+    [Space]
+    [SerializeField] private Transform _flashlight;
+   //[SerializeField] private Vector3 _flashlightOffset;
 
     private CharacterController _characterController;
     private PlayerInteraction _playerInteraction;
@@ -29,6 +33,7 @@ public class PlayerController : MonoBehaviour
         {
             MovePlayer();
             RotatePlayer();
+            RotateFlashlight();
         }
         else
         {
@@ -80,5 +85,13 @@ public class PlayerController : MonoBehaviour
 
         _cameraTransform.localRotation = Quaternion.Euler(_verticalRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
+    }
+    private void RotateFlashlight()
+    {
+        if (_flashlight != null)
+        {
+            _flashlight.position = _cameraTransform.position;// + _flashlightOffset;  // Ensure the flashlight follows the camera's position
+            _flashlight.rotation = _cameraTransform.rotation;  // Ensure the flashlight follows the camera's rotation
+        }
     }
 }

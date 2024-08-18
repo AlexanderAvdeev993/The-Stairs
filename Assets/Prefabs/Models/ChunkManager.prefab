@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 727895780511106601}
-  - component: {fileID: -7366774213244997984}
   - component: {fileID: 4364734602090397755}
   - component: {fileID: 7089892530965242565}
+  - component: {fileID: 3372670441778314952}
   m_Layer: 0
   m_Name: ChunkManager
   m_TagString: Untagged
@@ -34,7 +34,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7366774213244997984
+--- !u!114 &4364734602090397755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749160308755125156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf41a444f766c5d42901b8fb2541a825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chunkPrefab: {fileID: 7465226241617021693, guid: a1d559a2399fb7a4598805f7613940a6, type: 3}
+  _chunkHeight: 12
+  _totalChunks: 4
+--- !u!114 &7089892530965242565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749160308755125156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16b649d34300f4418465c99af9eb035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3372670441778314952
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,30 +92,3 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
---- !u!114 &4364734602090397755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749160308755125156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf41a444f766c5d42901b8fb2541a825, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _chunkPrefab: {fileID: 7465226241617021693, guid: a1d559a2399fb7a4598805f7613940a6, type: 3}
-  _chunkHeight: 12
-  _totalChunks: 4
---- !u!114 &7089892530965242565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749160308755125156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d16b649d34300f4418465c99af9eb035, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
